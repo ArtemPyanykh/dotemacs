@@ -2,3 +2,6 @@
 elpa/
 *~
 *.last
+recentf
+ac-comphist.dat
+*~
