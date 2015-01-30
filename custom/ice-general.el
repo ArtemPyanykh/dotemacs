@@ -49,4 +49,7 @@
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
 
+;; disable alarm bell
+(setq ring-bell-function 'ignore)
+
 (provide 'ice-general)

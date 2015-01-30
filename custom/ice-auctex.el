@@ -7,7 +7,7 @@
 
   (setq TeX-view-program-list
         '(("DVI Viewer" "open %o")
-          ("PDF Viewer" "open %o")
+          ("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")
           ("HTML Viewer" "open %o"))))
 
 (setq TeX-auto-save t)
