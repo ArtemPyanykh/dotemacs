@@ -12,12 +12,15 @@
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
-
 (setq TeX-PDF-mode t)
-
-;;(setq TeX-newline-function (quote newline-and-indent))
+(setq reftex-plug-into-AUCTeX t)
 
 (add-hook 'LaTeX-mode-hook (lambda()
-                             (LaTeX-math-mode 1)))
+                             (LaTeX-math-mode 1)
+			     (visual-line-mode t)
+			     (turn-on-reftex)))
+
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
 
 (provide 'ice-auctex)

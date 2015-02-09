@@ -7,6 +7,7 @@
 
 (defvar packages
   '(monokai-theme
+    solarized-theme
     exec-path-from-shell
     flx-ido
     key-chord
@@ -17,7 +18,9 @@
     smartparens
     yasnippet
     auctex
-    company)
+    auctex-latexmk
+    company
+    projectile)
   "A list of packages I want automatically installed with package.el")
 
 (defun all-packages-installed-p ()
@@ -40,6 +43,8 @@
 (require 'ice-visuals)
 (require 'ice-evil)
 (require 'ice-auctex)
+(require 'ice-projectile)
 (require 'ice-keys)
 (require 'ice-autocomplete)
-;;(require 'ice-editor)
+
+(put 'dired-find-alternate-file 'disabled nil)

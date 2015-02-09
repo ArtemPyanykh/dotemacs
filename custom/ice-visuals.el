@@ -6,7 +6,7 @@
 (setq inhibit-startup-message t
       inhibit-startup-echo-area-message t)
 
-(load-theme 'monokai t)
+(load-theme 'solarized-dark t)
 
 (blink-cursor-mode -1)
 

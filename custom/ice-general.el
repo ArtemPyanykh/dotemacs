@@ -52,4 +52,7 @@
 ;; disable alarm bell
 (setq ring-bell-function 'ignore)
 
+;; Enable dired find alternate file
+(put 'dired-find-alternate-file 'disabled nil)
+
 (provide 'ice-general)
