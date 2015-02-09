@@ -47,4 +47,3 @@
 (require 'ice-keys)
 (require 'ice-autocomplete)
 
-(put 'dired-find-alternate-file 'disabled nil)
