@@ -47,3 +47,4 @@
 (require 'ice-keys)
 (require 'ice-autocomplete)
 
+(server-start)
