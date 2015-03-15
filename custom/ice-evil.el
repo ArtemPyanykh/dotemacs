@@ -5,6 +5,15 @@
 (global-evil-leader-mode t)
 (evil-leader/set-leader "<SPC>")
 
+; Use C-u to scroll up, SPC-u for universal argument
+(evil-leader/set-key "u" 'universal-argument)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-insert-state-map (kbd "C-u")
+  (lambda ()
+    (interactive)
+    (evil-delete (point-at-bol) (point))))
+
 (require 'evil)
 (evil-mode 1)
 

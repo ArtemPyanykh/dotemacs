@@ -12,4 +12,7 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(require 'diminish)
+(eval-after-load "filladapt" '(diminish 'filladapt-mode))
+
 (provide 'ice-visuals)

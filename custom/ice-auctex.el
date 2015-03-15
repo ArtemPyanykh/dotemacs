@@ -15,10 +15,10 @@
 (setq TeX-PDF-mode t)
 (setq reftex-plug-into-AUCTeX t)
 
-(add-hook 'LaTeX-mode-hook (lambda()
-                             (LaTeX-math-mode 1)
-			     (visual-line-mode t)
-			     (turn-on-reftex)))
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)

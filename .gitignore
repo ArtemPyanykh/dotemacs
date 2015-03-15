@@ -6,3 +6,5 @@ recentf
 ac-comphist.dat
 *~
 /projectile*
+eshell/
+.emacs.desktop

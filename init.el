@@ -20,7 +20,9 @@
     auctex
     auctex-latexmk
     company
-    projectile)
+    projectile
+    diminish
+    smex)
   "A list of packages I want automatically installed with package.el")
 
 (defun all-packages-installed-p ()
@@ -46,5 +48,6 @@
 (require 'ice-projectile)
 (require 'ice-keys)
 (require 'ice-autocomplete)
+(require 'ice-spelling)
 
 (server-start)
