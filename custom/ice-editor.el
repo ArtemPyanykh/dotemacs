@@ -4,5 +4,5 @@
 
 
 ;; Smartparens
-;; (require 'smartparens-config)
-;; (provide 'ice-editor)
+(require 'smartparens-config)
+(provide 'ice-editor)

@@ -6,7 +6,7 @@
 (setq inhibit-startup-message t
       inhibit-startup-echo-area-message t)
 
-(load-theme 'solarized-dark t)
+(load-theme 'monokai t)
 
 (blink-cursor-mode -1)
 
@@ -14,5 +14,9 @@
 
 (require 'diminish)
 (eval-after-load "filladapt" '(diminish 'filladapt-mode))
+
+(require 'powerline)
+(powerline-evil-vim-color-theme)
+(display-time-mode t)
 
 (provide 'ice-visuals)
