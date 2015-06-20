@@ -1,15 +1,30 @@
+;; Fix shell path in OSX
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
+;; OS X Keybindings
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'super)
+  (setq mac-command-modifier 'meta)
+  (global-set-key [kp-delete] 'delete-char)
+  (global-set-key (kbd "M-w") 'ns-do-hide-emacs)
+  (global-set-key (kbd "M-h") 'ns-do-hide-emacs))
+
+;; GC on 20M
+(setq gc-cons-threshold 20000000)
+
 ;; Newline at end of file
 (setq require-final-newline t)
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
+      `((".*" . , temporary-file-directory)))
 (setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+      `((".*" , temporary-file-directory t)))
 
 ;; autosave the undo-tree history
 (setq undo-tree-history-directory-alist
-      `((".*" . ,temporary-file-directory)))
+      `((".*" . , temporary-file-directory)))
 (setq undo-tree-auto-save-history t)
 
 ;; revert buffers automatically when underlying files are changed externally
@@ -61,5 +76,34 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
+;; Smartparens
+(require 'smartparens-config)
+
+;; Projectile
+(projectile-global-mode)
+
+;; Visuals
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+(global-linum-mode 1)
+
+(setq inhibit-startup-message t
+      inhibit-startup-echo-area-message t)
+
+(load-theme 'monokai t)
+
+(blink-cursor-mode -1)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(require 'diminish)
+(eval-after-load "filladapt" '(diminish 'filladapt-mode))
+
+(require 'powerline)
+(display-time-mode t)
 
 (provide 'ice-general)

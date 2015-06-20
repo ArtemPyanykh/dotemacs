@@ -43,13 +43,8 @@
       (package-install p))))
 
 
-(require 'ice-osx)
 (require 'ice-general)
-(require 'ice-keys)
 (require 'ice-evil)
 (require 'ice-auctex)
-(require 'ice-projectile)
 (require 'ice-autocomplete)
 (require 'ice-spelling)
-(require 'ice-editor)
-(require 'ice-visuals)
