@@ -9,3 +9,5 @@ ac-comphist.dat
 eshell/
 .emacs.desktop
 smex-items
+.elscreen
+ensime

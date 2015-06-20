@@ -1,30 +1,34 @@
 (require 'cl)
 (require 'package)
-(package-initialize)
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
+(package-initialize)
+
 (defvar packages
   '(monokai-theme
-    solarized-theme
     exec-path-from-shell
     flx-ido
     key-chord
     evil
     evil-leader
     evil-tabs
-    evil-escape
+    evil-nerd-commenter
+    neotree
     powerline
     powerline-evil
     smartparens
     yasnippet
     auctex
     auctex-latexmk
-    company
+    auto-complete
     projectile
     diminish
-    smex)
+    smex
+    scala-mode2
+    ensime
+    sbt-mode)
   "A list of packages I want automatically installed with package.el")
 
 (defun all-packages-installed-p ()
@@ -48,3 +52,4 @@
 (require 'ice-auctex)
 (require 'ice-autocomplete)
 (require 'ice-spelling)
+(require 'ice-scala)

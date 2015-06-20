@@ -7,8 +7,21 @@
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta)
   (global-set-key [kp-delete] 'delete-char)
-  (global-set-key (kbd "M-w") 'ns-do-hide-emacs)
   (global-set-key (kbd "M-h") 'ns-do-hide-emacs))
+
+(global-set-key (kbd "M-0") (lambda () (interactive) (elscreen-goto 0)))
+(global-set-key (kbd "M-1") (lambda () (interactive) (elscreen-goto 1)))
+(global-set-key (kbd "M-2") (lambda () (interactive) (elscreen-goto 2)))
+(global-set-key (kbd "M-3") (lambda () (interactive) (elscreen-goto 3)))
+(global-set-key (kbd "M-4") (lambda () (interactive) (elscreen-goto 4)))
+(global-set-key (kbd "M-5") (lambda () (interactive) (elscreen-goto 5)))
+(global-set-key (kbd "M-6") (lambda () (interactive) (elscreen-goto 6)))
+(global-set-key (kbd "M-7") (lambda () (interactive) (elscreen-goto 7)))
+(global-set-key (kbd "M-8") (lambda () (interactive) (elscreen-goto 8)))
+(global-set-key (kbd "M-9") (lambda () (interactive) (elscreen-goto 9)))
+(global-set-key (kbd "M-t") 'elscreen-create)
+(global-set-key (kbd "M-w") 'elscreen-kill)
+(global-set-key (kbd "M-q") 'save-buffers-kill-terminal)
 
 ;; GC on 20M
 (setq gc-cons-threshold 20000000)
@@ -95,6 +108,8 @@
       inhibit-startup-echo-area-message t)
 
 (load-theme 'monokai t)
+
+(custom-set-variables '(neo-theme 'nerd))
 
 (blink-cursor-mode -1)
 
