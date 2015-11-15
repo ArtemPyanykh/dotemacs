@@ -25,8 +25,11 @@
     auto-complete
     projectile
     diminish
-    smex
-    yaml-mode)
+    yaml-mode
+    helm
+    helm-ag
+    helm-ls-git
+    helm-projectile)
   "A list of packages I want automatically installed with package.el")
 
 (defun all-packages-installed-p ()
@@ -44,8 +47,8 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-
 (require 'ice-general)
+(require 'ice-helm)
 (require 'ice-evil)
 (require 'ice-auctex)
 (require 'ice-autocomplete)
