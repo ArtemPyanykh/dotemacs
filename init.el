@@ -26,9 +26,7 @@
     projectile
     diminish
     smex
-    scala-mode2
-    ensime
-    sbt-mode)
+    yaml-mode)
   "A list of packages I want automatically installed with package.el")
 
 (defun all-packages-installed-p ()
@@ -52,4 +50,3 @@
 (require 'ice-auctex)
 (require 'ice-autocomplete)
 (require 'ice-spelling)
-(require 'ice-scala)
