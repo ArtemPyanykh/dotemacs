@@ -16,8 +16,6 @@
     evil-tabs
     evil-nerd-commenter
     neotree
-    powerline
-    powerline-evil
     smartparens
     yasnippet
     auctex
@@ -29,7 +27,10 @@
     helm
     helm-ag
     helm-ls-git
-    helm-projectile)
+    helm-projectile
+    powerline
+    powerline-evil
+    spaceline)
   "A list of packages I want automatically installed with package.el")
 
 (defun all-packages-installed-p ()
@@ -53,3 +54,5 @@
 (require 'ice-auctex)
 (require 'ice-autocomplete)
 (require 'ice-spelling)
+
+(spaceline-emacs-theme)

@@ -21,6 +21,8 @@
 (global-set-key (kbd "M-9") (lambda () (interactive) (elscreen-goto 9)))
 (global-set-key (kbd "M-t") 'elscreen-create)
 (global-set-key (kbd "M-w") 'elscreen-kill)
+(global-set-key (kbd "M-}") 'elscreen-next)
+(global-set-key (kbd "M-{") 'elscreen-previous)
 (global-set-key (kbd "M-q") 'save-buffers-kill-terminal)
 
 ;; GC on 20M
@@ -77,10 +79,8 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(require 'diminish)
-(eval-after-load "filladapt" '(diminish 'filladapt-mode))
-
+(setq powerline-default-separator 'arrow)
 (require 'powerline)
-(display-time-mode t)
+(require 'spaceline-config)
 
 (provide 'ice-general)

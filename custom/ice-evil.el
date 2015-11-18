@@ -10,7 +10,7 @@
 (evil-leader/set-key
   "u" 'universal-argument
   "f" 'helm-find-files
-  "b" 'helm-list-buffers
+  "b" 'helm-buffers-list
   "p" 'helm-browse-project
   "k" 'kill-buffer
   "r" 'helm-mini
@@ -20,8 +20,10 @@
 
 ; Use C-u to scroll up, SPC-u for universal argument
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-mode 1)
+
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-insert-state-map (kbd "C-u")
   (lambda ()
@@ -53,6 +55,14 @@
 	    (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)
 	    (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
 
+;; don't use system clipboard for default copy-pasting (closer to VIM behaviour)
+(setq-default
+  interprogram-cut-function   nil
+  interprogram-paste-function nil
+  x-select-enable-clipboard   nil)
+
+
 ;; seamless interop with Ru keyboard layout
+(key-chord-define evil-insert-state-map (kbd "ол") 'evil-normal-state)
 
 (provide 'ice-evil)

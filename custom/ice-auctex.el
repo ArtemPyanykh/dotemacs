@@ -17,7 +17,7 @@
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (LateX-math-mode)
+	    (latex-math-mode)
 	    (visual-line-mode)
 	    (turn-on-reftex)
 	    (flyspell-mode)
