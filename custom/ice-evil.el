@@ -1,68 +1,63 @@
-;; Evil mode!
+;;
 
-;; evil leader has to be enabled before evil mode
-(require 'evil-leader)
-(global-evil-leader-mode t)
+(defun ice/apply-evil-initialization-order ()
+  (use-package evil
+    :ensure t
+    :config
+    (use-package evil-leader
+      :ensure t
+      :config
+      (use-package evil-tabs
+                   :ensure t
+                   :config
+                   (global-evil-leader-mode t)
+                   (evil-mode 1)
+                   (global-evil-tabs-mode t)))))
 
-(define-key evil-motion-state-map ";" 'evil-ex)
+(defun ice/apply-general-evil-keymap ()
+  (use-package evil
+    :config
+    (define-key evil-motion-state-map ";" 'evil-ex)
+    (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+    (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+    (evil-ex-define-cmd "q[uit]" 'delete-window))
 
-(evil-leader/set-leader "<SPC>")
-(evil-leader/set-key
-  "u" 'universal-argument
-  "f" 'helm-find-files
-  "b" 'helm-buffers-list
-  "p" 'helm-browse-project
-  "k" 'kill-buffer
-  "r" 'helm-mini
-  "d" 'dired
-  "t" 'neotree
-  "s" 'helm-occur)
+  (use-package evil-leader
+    :config
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key
+      "u" 'universal-argument
+      "f" 'helm-find-files
+      "b" 'helm-buffers-list
+      "p" 'helm-browse-project
+      "k" 'kill-buffer
+      "r" 'helm-mini
+      "d" 'dired
+      "t" 'neotree
+      "s" 'helm-occur)))
 
-; Use C-u to scroll up, SPC-u for universal argument
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(defun ice/apply-evil-visuals ()
+  (use-package evil
+    :init
+    (setq evil-emacs-state-cursor '("red" box))
+    (setq evil-normal-state-cursor '("white" box))
+    (setq evil-visual-state-cursor '("purple" box))
+    (setq evil-insert-state-cursor '("white" bar))
+    (setq evil-replace-state-cursor '("orange" box))
+    (setq evil-operator-state-cursor '("orange" hollow))))
 
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-(key-chord-mode 1)
-
-(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
-(define-key evil-insert-state-map (kbd "C-u")
-  (lambda ()
-    (interactive)
-    (evil-delete (point-at-bol) (point))))
-
-;; regular evil-mode stuff
-(require 'evil)
-(evil-mode 1)
-
-;; evil-tabs section
-(require 'evil-tabs)
-(global-evil-tabs-mode t)
-
-(setq evil-emacs-state-cursor '("red" box))
-(setq evil-normal-state-cursor '("white" box))
-(setq evil-visual-state-cursor '("gray" box))
-(setq evil-insert-state-cursor '("white" bar))
-(setq evil-replace-state-cursor '("white" box))
-(setq evil-operator-state-cursor '("white" hollow))
-
-(evilnc-default-hotkeys)
-
-(add-hook 'neotree-mode-hook
-	  (lambda ()
-	    (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-change-root)
-	    (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-	    (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
-	    (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)
-	    (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
-
-;; don't use system clipboard for default copy-pasting (closer to VIM behaviour)
-(setq-default
-  interprogram-cut-function   nil
-  interprogram-paste-function nil
-  x-select-enable-clipboard   nil)
-
-
-;; seamless interop with Ru keyboard layout
-(key-chord-define evil-insert-state-map (kbd "ол") 'evil-normal-state)
+(defun ice/adjust-neotree-for-evil ()
+  (use-package evil
+    :config
+    (use-package neotree
+      :init
+      (add-hook
+       'neotree-mode-hook
+       (lambda ()
+	 (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-change-root)
+	 (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+	 (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
+	 (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)
+	 (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle))))))
 
 (provide 'ice-evil)
