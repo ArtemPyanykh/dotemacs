@@ -35,6 +35,7 @@
 (ice/adjust-neotree-for-evil)
 
 (ice/apply-tex)
+(ice/apply-tex-leader-keymaps)
 
 (use-package yaml-mode
   :ensure t)
