@@ -20,6 +20,7 @@
     (define-key evil-motion-state-map ";" 'evil-ex)
     (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
     (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+    (define-key evil-insert-state-map (kbd "C-k") nil)
     (evil-ex-define-cmd "q[uit]" 'delete-window))
 
   (use-package evil-leader

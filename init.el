@@ -7,7 +7,7 @@
 (add-to-list 'load-path "~/.emacs.d/custom/")
 
 (package-initialize)
-(package-refresh-contents)
+; (package-refresh-contents)
 
 (when (not (package-installed-p 'use-package))
   (package-install 'use-package))
@@ -19,6 +19,7 @@
 (require 'ice-helm)
 (require 'ice-evil)
 (require 'ice-auctex)
+(require 'ice-completion)
 
 (ice/apply-sensible-defaults)
 (ice/apply-mac-defaults)
@@ -34,8 +35,11 @@
 (ice/apply-general-evil-keymap)
 (ice/adjust-neotree-for-evil)
 
+(ice/apply-completion)
+
 (ice/apply-tex)
 (ice/apply-tex-leader-keymaps)
+(ice/apply-tex-completion)
 
 (use-package yaml-mode
   :ensure t)

@@ -34,10 +34,7 @@
     (use-package spaceline-config))
 
   (use-package diminish
-    :ensure t
-    :config
-    (diminish-and-update-mode-line 'helm-mode " ℍ")
-    (diminish-and-update-mode-line 'undo-tree-mode " UT"))
+    :ensure t)
 
   (use-package rainbow-delimiters
     :ensure t

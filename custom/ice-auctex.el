@@ -15,13 +15,11 @@
 
 	      TeX-auto-save t
 	      TeX-parse-self t
-	      TeX-PDF-mode t
-	      reftex-plub-into-AUCTeX t))
+	      TeX-PDF-mode t))
 
       (add-hook 'LaTeX-mode-hook (lambda ()
 				   (latex-math-mode)
 				   (visual-line-mode)
-				   (turn-on-reftex)
 				   (tex-source-correlate-mode)))))
 
   (use-package auctex-latexmk
@@ -29,7 +27,13 @@
     :init
     (progn
       (setq auctex-latexmk-inherit-TeX-PDF-mode t)
-      (add-hook 'LaTeX-mode-hook 'auctex-latexmk-setup))))
+      (add-hook 'LaTeX-mode-hook 'auctex-latexmk-setup)))
+
+  (use-package reftex
+    :diminish reftex-mode " §"
+    :init
+    (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+    (setq reftex-plug-into-AUCTeX t)))
 
 (defun ice/auctex-build-master ()
   (interactive)
@@ -58,5 +62,15 @@
     "mfp" 'LaTeX-fill-paragraph
     "mfs" 'LaTeX-fill-section
     "mfe" 'LaTeX-fill-environment))
+
+(defun ice/apply-tex-completion ()
+  (use-package company
+    :init
+    (add-hook 'LaTeX-mode-hook 'company-mode))
+
+  (use-package company-auctex
+    :ensure t
+    :init
+    (add-hook 'company-mode-hook 'company-auctex-init)))
 
 (provide 'ice-auctex)

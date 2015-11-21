@@ -1,6 +1,7 @@
 (defun ice/apply-helm-setup ()
   (use-package helm
     :ensure t
+    :diminish " ℍ"
     :config
     (use-package helm-config)
     (setq helm-mode-fuzzy-match t
