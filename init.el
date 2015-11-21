@@ -13,23 +13,35 @@
   (package-install 'use-package))
 
 (require 'ice-general)
+(require 'ice-keys)
+(require 'ice-nav)
+(require 'ice-visuals)
 (require 'ice-helm)
 (require 'ice-evil)
+(require 'ice-auctex)
 
 (ice/apply-sensible-defaults)
 (ice/apply-mac-defaults)
+
+(ice/apply-nav)
+
 (ice/apply-visuals)
+
 (ice/apply-helm-setup)
-(ice/apply-projectile)
-(ice/apply-undo-tree)
+
 (ice/apply-evil-initialization-order)
 (ice/apply-evil-visuals)
 (ice/apply-general-evil-keymap)
 (ice/adjust-neotree-for-evil)
 
-(require 'ice-auctex)
+(ice/apply-tex)
 
+(use-package yaml-mode
+  :ensure t)
+
+(setq-default ice-mode t)
 (toggle-frame-maximized)
+
 ;;(require 'ice-autocomplete)
 ;;(require 'ice-spelling)
 
