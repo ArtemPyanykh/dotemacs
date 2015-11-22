@@ -1,8 +1,3 @@
-;;
-
-(defun diminish-and-update-mode-line (mode title)
-  (eval-after-load mode `(progn (diminish ',mode ,title) (force-mode-line-update))))
-
 (defun ice/apply-visuals ()
   (require 'use-package)
 
@@ -11,7 +6,7 @@
   (global-linum-mode 1)
   (blink-cursor-mode -1)
   (setq inhibit-startup-message t
-	inhibit-startup-echo-area-message t)
+        inhibit-startup-echo-area-message t)
 
   (use-package smartparens
     :ensure t

@@ -10,6 +10,6 @@
 (setq ispell-highlight-face (quote flyspell-incorrect))
 (setq ispell-have-new-look t)
 (setq ispell-enable-tex-parser t)
-;(setq flyspell-always-use-popup t)
+                                        ;(setq flyspell-always-use-popup t)
 
 (provide 'ice-spelling)

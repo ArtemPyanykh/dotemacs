@@ -5,7 +5,7 @@
     :config
     (use-package helm-config)
     (setq helm-mode-fuzzy-match t
-	  helm-completion-in-region-fuzzy-match t)
+          helm-completion-in-region-fuzzy-match t)
     (helm-mode 1))
 
   (use-package helm-ag :ensure t)

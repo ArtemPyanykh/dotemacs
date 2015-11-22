@@ -1,5 +1,3 @@
-;;
-
 (defun ice/apply-projectile ()
   (use-package projectile
     :ensure t

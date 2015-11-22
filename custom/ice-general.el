@@ -1,5 +1,3 @@
-;;;;
-
 (defun ice/apply-sensible-defaults ()
   ;; GC on 20M
   (setq gc-cons-threshold 20000000)
@@ -7,12 +5,12 @@
   (setq require-final-newline t)
   ;; Store all backup and autosave files in the tmp dir
   (setq backup-directory-alist
-	`((".*" . , temporary-file-directory)))
+        `((".*" . , temporary-file-directory)))
   (setq auto-save-file-name-transforms
-	`((".*" , temporary-file-directory t)))
+        `((".*" , temporary-file-directory t)))
   ;; Autosave the undo-tree history
   (setq undo-tree-history-directory-alist
-	`((".*" . , temporary-file-directory)))
+        `((".*" . , temporary-file-directory)))
   (setq undo-tree-auto-save-history t)
   ;; Revert buffers automatically when underlying files are changed externally
   (global-auto-revert-mode t)
@@ -35,5 +33,13 @@
     (setq mac-option-modifier 'super)
     (setq mac-command-modifier 'meta)))
 
+(defun ice/apply-sensible-editor-defaults ()
+  (setq-default
+   indent-tabs-mode nil
+   tab-width 2
+   require-final-newline t
+   fill-column 80)
+
+  (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
 (provide 'ice-general)
