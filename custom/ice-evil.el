@@ -56,10 +56,11 @@
   (use-package evil
     :init
     (setq evil-emacs-state-cursor '("red" box))
-    (setq evil-normal-state-cursor '("white" box))
-    (setq evil-visual-state-cursor '("purple" box))
-    (setq evil-insert-state-cursor '("white" bar))
-    (setq evil-replace-state-cursor '("orange" box))
+    (setq evil-normal-state-cursor '("DarkGoldenrod2" box))
+    (setq evil-visual-state-cursor '("red" (hbar . 2)))
+    (setq evil-insert-state-cursor '("white" (bar . 2)))
+    (setq evil-replace-state-cursor '("chocolate" (hbar . 2)))
+    (setq evil-motion-state-cursor '("plum3" box))
     (setq evil-operator-state-cursor '("orange" hollow))))
 
 (defun ice/adjust-neotree-for-evil ()
