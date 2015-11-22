@@ -36,6 +36,14 @@
     :init
     (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-  (show-paren-mode))
+  (show-paren-mode)
+
+  (use-package helm
+    :commands helm-autoresize-mode
+    :init
+    (setq helm-display-header-line nil
+          helm-autoresize-max-height 30
+          helm-autoresize-min-height 30)
+    (helm-autoresize-mode 1)))
 
 (provide 'ice-visuals)
