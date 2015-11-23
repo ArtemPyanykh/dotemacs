@@ -116,6 +116,8 @@
     (define-key evil-normal-state-map "п," 'evil-rot13)
     (define-key evil-normal-state-map "Б" 'evil-shift-left)
     (define-key evil-normal-state-map "Ю" 'evil-shift-right)
+    (define-key evil-normal-state-map "г" 'undo-tree-undo)
+    (define-key evil-normal-state-map (kbd "C-к") 'undo-tree-redo)
 
     ;; Motion state map
     (define-key evil-motion-state-map "и" 'evil-backward-word-begin)
