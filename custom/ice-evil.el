@@ -10,7 +10,9 @@
         :config
         (global-evil-leader-mode t)
         (evil-mode 1)
-        (global-evil-tabs-mode t)))))
+        (global-evil-tabs-mode t))
+      (use-package evil-nerd-commenter
+        :ensure t))))
 
 (defun ice/evil-end-of-visual-line ()
   (interactive)
@@ -39,6 +41,7 @@
     (evil-ex-define-cmd "q[uit]" 'delete-window))
 
   (use-package evil-leader
+    :init
     :config
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
@@ -47,10 +50,11 @@
       "b" 'helm-buffers-list
       "p" 'helm-browse-project
       "k" 'kill-buffer
-      "r" 'helm-mini
+      "e" 'helm-mini
       "d" 'dired
       "t" 'neotree
-      "s" 'helm-occur)))
+      "s" 'helm-occur
+      "SPC" 'evil-ace-jump-char-mode)))
 
 (defun ice/apply-evil-visuals ()
   (use-package evil

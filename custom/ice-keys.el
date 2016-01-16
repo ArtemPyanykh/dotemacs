@@ -11,7 +11,11 @@
      (,(kbd "M-}") . elscreen-next)
      (,(kbd "M-{") . elscreen-previous)
      (,(kbd "C-х") . evil-normal-state)
-     (,(kbd "M-q") . save-buffers-kill-terminal))
+     (,(kbd "M-Ъ") . elscreen-next)
+     (,(kbd "M-Х") . elscreen-previous)
+     (,(kbd "C-п") . keyboard-quit)
+     (,(kbd "M-q") . save-buffers-kill-terminal)
+     (,(kbd "M-/") . evilnc-comment-or-uncomment-lines))
 
    (mapcar 'ice-mode/navigate-elscreen '(0 1 2 3 4 5 6 7 8 9))))
 

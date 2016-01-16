@@ -63,6 +63,27 @@
     "mfs" 'LaTeX-fill-section
     "mfe" 'LaTeX-fill-environment))
 
+(defun ice/apply-tex-russian-leader-keymaps ()
+  (evil-leader/set-key-for-mode 'latex-mode
+    "ьи" 'ice/auctex-build-master
+    "ьс" 'TeX-command-master
+    "ьм" 'TeX-view
+    "ькд" 'reftex-toc
+    "ькы" 'reftex-view-crossref
+    "ьзз" 'preview-at-point
+    "ьзу" 'preview-environment
+    "ьзк" 'preview-region
+    "ьзи" 'preview-buffer
+    "ьзв" 'preview-document
+    "ьзяз" 'preview-clearout-at-point
+    "ьзяк" 'preview-clearout
+    "ьзяи" 'preview-clearout-buffer
+    "ьзяв" 'preview-clearout-document
+    "ьак" 'LaTeX-fill-region
+    "ьаз" 'LaTeX-fill-paragraph
+    "ьаы" 'LaTeX-fill-section
+    "ьау" 'LaTeX-fill-environment))
+
 (defun ice/apply-tex-completion ()
   (use-package company
     :init

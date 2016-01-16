@@ -41,9 +41,13 @@
 
 (ice/apply-tex)
 (ice/apply-tex-leader-keymaps)
+(ice/apply-tex-russian-leader-keymaps)
 (ice/apply-tex-completion)
 
 (use-package yaml-mode
+  :ensure t)
+
+(use-package ace-jump-mode
   :ensure t)
 
 (setq-default ice-mode t)
