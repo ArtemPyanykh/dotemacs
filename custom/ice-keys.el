@@ -13,7 +13,7 @@
      (,(kbd "C-х") . evil-normal-state)
      (,(kbd "M-Ъ") . elscreen-next)
      (,(kbd "M-Х") . elscreen-previous)
-     (,(kbd "C-п") . keyboard-quit)
+     (,(kbd "C-п") . keyboard-escape-quit)
      (,(kbd "M-q") . save-buffers-kill-terminal)
      (,(kbd "M-/") . evilnc-comment-or-uncomment-lines))
 

@@ -54,6 +54,7 @@
       "d" 'dired
       "t" 'neotree
       "s" 'helm-occur
+      "ы" 'helm-occur
       "SPC" 'evil-ace-jump-char-mode)))
 
 (defun ice/apply-evil-visuals ()
