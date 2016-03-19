@@ -55,7 +55,10 @@
       "t" 'neotree
       "s" 'helm-occur
       "ы" 'helm-occur
-      "SPC" 'evil-ace-jump-char-mode)))
+      "S" 'helm-projectile-ag
+      "Ы" 'helm-projectile-ag
+      "SPC" 'evil-ace-jump-char-mode
+      "q" 'fill-paragraph)))
 
 (defun ice/apply-evil-visuals ()
   (use-package evil

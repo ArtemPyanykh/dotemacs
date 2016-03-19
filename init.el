@@ -7,7 +7,7 @@
 (add-to-list 'load-path "~/.emacs.d/custom/")
 
 (package-initialize)
-                                        ; (package-refresh-contents)
+(package-refresh-contents)
 
 (when (not (package-installed-p 'use-package))
   (package-install 'use-package))
