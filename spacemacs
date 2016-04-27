@@ -119,7 +119,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Office Code Pro"
+   dotspacemacs-default-font '("Menlo"
                                :size 13
                                :weight normal
                                :width normal
@@ -277,7 +277,11 @@ you should place you code here."
           TeX-PDF-mode t))
 
   (setq powerline-default-separator 'nil)
-  (add-hook 'prog-mode-hook (lambda () (editorconfig-mode 1))))
+  (add-hook 'prog-mode-hook (lambda () (editorconfig-mode 1)))
+
+  (custom-set-variables
+   '(neo-hidden-regexp-list
+     (quote ("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "\\.aux$" "\\.fdb_latexmk$" "\\.fls$" "\\.log$")))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
