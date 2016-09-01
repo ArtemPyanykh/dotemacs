@@ -273,23 +273,30 @@ you should place you code here."
 
           TeX-parse-self t
           TeX-PDF-mode t))
-          ;; TeX-quote-after-quote t))
 
-  (setq powerline-default-separator 'nil)
-  (add-hook 'prog-mode-hook (lambda () (editorconfig-mode 1)))
   (remove-hook 'LaTeX-mode-hook #'latex/auto-fill-mode)
-  (add-hook 'LaTeX-mode-hook (lambda () (spacemacs/toggle-visual-line-navigation-on)))
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (spacemacs/toggle-visual-line-navigation-on)))
 
-  ;; (eval-after-load 'latex
-  ;;   '(progn
-  ;;      (require 'smartparens-latex)
-  ;;      ;; removes the double quote trigger binding. Now smartparens will
-  ;;      ;; insert a regular double quote
-  ;;      (sp-local-pair 'latex-mode "``" "''" :trigger "\"" :actions :rem)))
+  (add-hook 'prog-mode-hook (lambda () (editorconfig-mode 1)))
 
   (custom-set-variables
    '(neo-hidden-regexp-list
-     (quote ("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "\\.aux$" "\\.fdb_latexmk$" "\\.fls$" "\\.log$" "\\.bbl$" "\\.bcf$" "\\.blg$" "\\.synctex.gz$" "\\.out$")))))
+     (quote (
+             "^\\."
+             "\\.pyc$"
+             "~$" "^#.*#$"
+             "\\.elc$"
+             "\\.aux$"
+             "\\.fdb_latexmk$"
+             "\\.fls$"
+             "\\.log$"
+             "\\.bbl$"
+             "\\.bcf$"
+             "\\.blg$"
+             "\\.synctex.gz$"
+             "\\.out$")))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
