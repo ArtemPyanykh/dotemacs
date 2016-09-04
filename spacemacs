@@ -37,7 +37,8 @@ values."
      ;; syntax-checking
      version-control
      (latex :variables
-            latex-build-command "LatexMk")
+            latex-build-command "LatexMk"
+            latex-enable-auto-fill nil)
      eyebrowse
      scala
      yaml
@@ -107,8 +108,6 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light
-                         ;; solarized-dark
-                         ;; solarized-light
                          ;; monokai
                          ;; leuven
                          ;; zenburn
@@ -281,6 +280,11 @@ you should place you code here."
 
   (add-hook 'prog-mode-hook (lambda () (editorconfig-mode 1)))
 
+  ;;; scroll one line at a time (less "jumpy" than defaults)
+  (setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; two lines at a time
+  (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
   (custom-set-variables
    '(neo-hidden-regexp-list
      (quote (
@@ -296,7 +300,14 @@ you should place you code here."
              "\\.bcf$"
              "\\.blg$"
              "\\.synctex.gz$"
-             "\\.out$")))))
+             "\\.out$"))))
+
+  (setq org-directory "~/Dropbox/@org")
+  (setq org-capture-templates
+        '(("j" "Journal" entry (file+datetree "journal.org")
+           "* %U\n\n%?")
+          ("n" "Note" entry (file+datetree "notes.org")
+           "* %?\n\nEntered at %U"))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
