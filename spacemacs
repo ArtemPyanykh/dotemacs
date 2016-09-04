@@ -307,7 +307,8 @@ you should place you code here."
         '(("j" "Journal" entry (file+datetree "journal.org")
            "* %U\n\n%?")
           ("n" "Note" entry (file+datetree "notes.org")
-           "* %?\n\nEntered at %U"))))
-
+           "* %?\n\nEntered at %U")
+          ("d" "Dissertation note" entry (file+headline "~/Dropbox/@Science/Research/articles/dissertation/notes.org" "Other tasks")
+           "* TODO %?\n\n%a"))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
