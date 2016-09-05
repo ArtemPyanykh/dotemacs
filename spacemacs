@@ -38,7 +38,8 @@ values."
      version-control
      (latex :variables
             latex-build-command "LatexMk"
-            latex-enable-auto-fill nil)
+            latex-enable-auto-fill nil
+            latex-enable-folding t)
      eyebrowse
      scala
      yaml
@@ -308,7 +309,25 @@ you should place you code here."
            "* %U\n\n%?")
           ("n" "Note" entry (file+datetree "notes.org")
            "* %?\n\nEntered at %U")
-          ("d" "Dissertation note" entry (file+headline "~/Dropbox/@Science/Research/articles/dissertation/notes.org" "Other tasks")
-           "* TODO %?\n\n%a"))))
+          ("d" "Dissertation note" checkitem (file+headline "~/Dropbox/@Science/Research/articles/dissertation/notes.org" "Refinements")
+           "- [ ] %?"))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(neo-hidden-regexp-list
+   (quote
+    ("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "\\.aux$" "\\.fdb_latexmk$" "\\.fls$" "\\.log$" "\\.bbl$" "\\.bcf$" "\\.blg$" "\\.synctex.gz$" "\\.out$")))
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/@Science/Research/articles/dissertation/notes.org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
