@@ -306,9 +306,13 @@ you should place you code here."
   (setq org-directory "~/Dropbox/@org")
   (setq org-capture-templates
         '(("j" "Journal" entry (file+datetree "journal.org")
-           "* %U\n\n%?")
+           "* %U\n\n%?"
+           :empty-lines 1
+           :prepend)
           ("n" "Note" entry (file+datetree "notes.org")
-           "* %?\n\nEntered at %U")
+           "* %?\n\nEntered at %U"
+           :empty-lines 1
+           :prepend)
           ("d" "Dissertation note" checkitem (file+headline "~/Dropbox/@Science/Research/articles/dissertation/notes.org" "Refinements")
            "- [ ] %?"))))
 ;; Do not write anything past this comment. This is where Emacs will
