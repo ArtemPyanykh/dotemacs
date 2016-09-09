@@ -40,7 +40,6 @@ values."
             latex-build-command "LatexMk"
             latex-enable-auto-fill nil
             latex-enable-folding t)
-     eyebrowse
      scala
      yaml
      osx
