@@ -306,8 +306,7 @@ you should place you code here."
   (setq org-capture-templates
         '(("j" "Journal" entry (file+datetree "journal.org")
            "* %U\n\n%?"
-           :empty-lines 1
-           :prepend)
+           :empty-lines 1)
           ("n" "Note" entry (file+datetree "notes.org")
            "* %?\n\nEntered at %U"
            :empty-lines 1
@@ -326,7 +325,7 @@ you should place you code here."
     ("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "\\.aux$" "\\.fdb_latexmk$" "\\.fls$" "\\.log$" "\\.bbl$" "\\.bcf$" "\\.blg$" "\\.synctex.gz$" "\\.out$")))
  '(org-agenda-files
    (quote
-    ("~/Dropbox/@Science/Research/articles/dissertation/notes.org"))))
+    ("~/Dropbox/@org/notes.org" "~/Dropbox/@Science/Research/articles/dissertation/notes.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
