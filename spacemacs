@@ -260,6 +260,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
+
+  ;;; LATEX CONFIGURATION
   (let ((displayline-viewer "displayline -b -g %n %o %b")) ;; %n/o/b are from TeX-expand-list variable
 
     (setq TeX-view-program-selection
@@ -277,7 +279,9 @@ you should place you code here."
   (add-hook 'LaTeX-mode-hook
             (lambda ()
               (spacemacs/toggle-visual-line-navigation-on)))
+  ;;; END LATEX CONFIGURATION
 
+  ;;; EDITOR CONFIGURATION
   (add-hook 'prog-mode-hook (lambda () (editorconfig-mode 1)))
 
   ;;; scroll one line at a time (less "jumpy" than defaults)
@@ -301,35 +305,33 @@ you should place you code here."
              "\\.blg$"
              "\\.synctex.gz$"
              "\\.out$"))))
+  ;;; END EDITOR CONFIGURATION
 
+  ;;; ORG CONFIGURATION
   (setq org-directory "~/Dropbox/@org")
   (setq org-capture-templates
         '(("j" "Journal" entry (file+datetree "journal.org")
-           "* %U\n\n%?"
-           :empty-lines 1)
-          ("n" "Note" entry (file+datetree "notes.org")
-           "* %?\n\nEntered at %U"
+           "* %U\n%?")
+
+          ("n" "Note" entry (file "notes.org")
+           "* TODO %U %?"
            :empty-lines 1
            :prepend)
+
           ("d" "Dissertation note" checkitem (file+headline "~/Dropbox/@Science/Research/articles/dissertation/notes.org" "Refinements")
-           "- [ ] %?"))))
+           "- [ ] %?")))
+
+  (defun under-projects (subfolder)
+    (let ((projects-directory "~/Dropbox/@Projects"))
+      (concat projects-directory "/" subfolder)))
+
+  (setq org-agenda-files
+        `(,org-directory
+          ,(under-projects "Personal/RelSchool")
+          ,(under-projects "PhD/ORM2016")
+          ,(under-projects "Toptal/Improve billing reports")
+          "~/Dropbox/@Science/Research/articles/dissertation"))
+  ;;; END ORG CONFIGURATION
+  )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(neo-hidden-regexp-list
-   (quote
-    ("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "\\.aux$" "\\.fdb_latexmk$" "\\.fls$" "\\.log$" "\\.bbl$" "\\.bcf$" "\\.blg$" "\\.synctex.gz$" "\\.out$")))
- '(org-agenda-files
-   (quote
-    ("~/Dropbox/@org/notes.org" "~/Dropbox/@Science/Research/articles/dissertation/notes.org"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
